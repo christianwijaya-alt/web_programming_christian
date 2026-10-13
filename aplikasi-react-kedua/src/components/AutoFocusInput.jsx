@@ -18,3 +18,4 @@ function AutoFocusInput() {
     </div>
     );
 }
+export default AutoFocusInput;
