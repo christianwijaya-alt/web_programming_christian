@@ -15,6 +15,7 @@ import AutoFocusInput from './components/AutoFocusInput'
 import DafterBuah from './components/DaftarBuah'
 import { daftarPekerjaan } from './daftarPekerjaan'
 import TodoList from './components/TodoList'
+import FormLogin from './components/FormLogin'
 
 function App() {
   // props untuk UserList
@@ -37,6 +38,7 @@ function App() {
       <PekerjaanList />
       <UserList users={dataPengguna} />
       <TodoList />
+      <FormLogin />
     </>
   )
 }
