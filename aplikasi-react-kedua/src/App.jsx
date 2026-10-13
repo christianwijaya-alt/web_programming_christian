@@ -12,8 +12,17 @@ import InputSederhana from './components/InputSederhana'
 import ControlledForm from './components/ControlledForm'
 import FormTransaksiLengkap from './components/FormTransaksiLengkap'
 import AutoFocusInput from './components/AutoFocusInput'
+import DafterBuah from './components/DaftarBuah'
+import { daftarPekerjaan } from './daftarPekerjaan'
+import TodoList from './components/TodoList'
 
 function App() {
+  // props untuk UserList
+  const dataPengguna = [
+    { id: 'u1', name: 'Budi', email: 'budi@mail.com' },
+    { id: 'u2', name: 'Siti', email: 'siti@mail.com' }
+  ];
+
   return (
     <>
       <TombolAksi />
@@ -24,8 +33,35 @@ function App() {
       <ControlledForm />
       <FormTransaksiLengkap />
       <AutoFocusInput />
+      <DafterBuah />
+      <PekerjaanList />
+      <UserList users={dataPengguna} />
+      <TodoList />
     </>
   )
 }
-
 export default App
+
+function PekerjaanList() {
+  return (
+  <ul>
+    {daftarPekerjaan.map((job) => (
+      <li key={job.id}>{job.nama}</li>
+    ))}
+    </ul>
+  );
+}
+
+// render data dari props
+function UserList({ users }) {
+  return (
+    <div className="user-list">
+      {users.map(user => (
+        <div key={user.id} className="card">
+          <h4>{user.name}</h4>
+          <p>{user.email}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
